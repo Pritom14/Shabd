@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dsciitp.shabd">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -10,17 +14,26 @@
         android:roundIcon="@drawable/shabd"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Setting.LanguageSettingActivity">
-
-        </activity>
+        <activity android:name=".Learn.Video.VideoActivity"
+            android:parentActivityName=".Learn.LearnActivity"/>
+        <activity
+            android:name=".Learn.ColorGame.ColorGameActivity"
+            android:parentActivityName=".Learn.LearnActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Learn.Quiz.QuizActivity"
+            android:parentActivityName=".Learn.LearnActivity" />
+        <activity
+            android:name=".Setting.LanguageSettingActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Learn.Drawing.DrawingActivity"
             android:parentActivityName=".Learn.LearnActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Learn.Piano.PianoActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".signin.SigninActivity"
             android:screenOrientation="portrait"
