@@ -46,6 +46,8 @@ import io.realm.RealmQuery;
 public class MainActivity extends AppCompatActivity implements HomeRecyclerAdapter.OnCategorySelectedListener,
         CategoryFragment.OnOnlineWordSelectedListener, BasicRecyclerAdapter.OnSubCategorySelectedListener {
 
+    private static final String TAG = "MainActivity";
+
     TextToSpeech tts;
     EditText speak;
     ImageView play;
@@ -92,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements HomeRecyclerAdapt
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -302,12 +305,14 @@ public class MainActivity extends AppCompatActivity implements HomeRecyclerAdapt
 
     @Override
     protected void onStop() {
+        Log.d(TAG, "onStop");
         super.onStop();
         speak.setText("");
     }
 
     @Override
     protected void onDestroy() {
+        Log.d(TAG, "onDestroy");
         if (tts != null) {
             tts.stop();
             tts.shutdown();
